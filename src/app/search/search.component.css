@@ -38,7 +38,7 @@
   overflow: auto;
   margin-left: auto;
   margin-right: auto;
-
+  margin-top: 20px;
 }
 .loader {
   height: 100px;
