@@ -1,0 +1,53 @@
+<div class="col-md-12">
+  <div class="col-md-12">
+    <input placeholder="Search equity / stock" class="searchbox col-md-12" [(ngModel)]="query" (keyup)="searching($event)"/>
+    <div class="populate-queries" *ngIf="queryList.length > 0">
+      <ul >
+        <li *ngFor="let query of queryList" attr.qid="{{query.id}}" (click)="findDetails(query.id)">{{query.name}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="col-md-11 esDetails-div">
+  <!-- <table id="esDetails" class="display" width="100%" dataTable>
+    <thead>
+      <ng-template *ngFor="let eq of equityStock">
+        <tr>
+          <th></th>
+          <th>AskPrice</th><td>{{eq.askPrice}}</td>
+          <th>BidPrice</th><td>{{eq.bidPrice}}</td>
+          <th>cashDividend</th><td>{{eq.cashDividend}}</td>
+        </tr>
+      </ng-template>
+    </thead>
+  </table> -->
+
+      <!-- <div *ngFor="let eq of equityStock">
+        <div>AskPrice</div>
+        <div>{{eq.askPrice}}</div>
+        <div>BidPrice</div>
+        <div>{{eq.bidPrice}}</div>
+        <div>cashDividend</div>
+        <div>{{eq.cashDividend}}</div>
+        <div>contractName</div>
+        <div>{{eq.contractName}}</div>
+      </div>   -->
+
+      <table class="table table-striped table-dark table-bordered" *ngIf="equityStock.length > 0">
+        <thead align="center" class="thead-default">
+          <tr *ngFor="let item of equityStock" class="">
+            <th *ngFor="let key of item | keys" scope="col">
+              {{key}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of equityStock" class="">
+            <td *ngFor="let key of item | keys" scope="row">
+              {{item[key]}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+        
