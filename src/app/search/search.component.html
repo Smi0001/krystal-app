@@ -1,6 +1,7 @@
 <div class="col-md-12">
   <div class="col-md-12">
-    <input placeholder="Search equity / stock" class="searchbox col-md-12" [(ngModel)]="query" (keyup)="searching($event)"/>
+    <input placeholder="Search equity / stock" class="searchbox col-md-11" [(ngModel)]="query" (keyup)="searching($event)"/>
+    <img *ngIf="progress" src="../../assets/loader.gif" class="loader"/>
     <div class="populate-queries" *ngIf="queryList.length > 0">
       <ul >
         <li *ngFor="let query of queryList" attr.qid="{{query.id}}" (click)="findDetails(query.id)">{{query.name}}</li>
@@ -36,7 +37,7 @@
       <table class="table table-striped table-dark table-bordered" *ngIf="equityStock.length > 0">
         <thead align="center" class="thead-default">
           <tr *ngFor="let item of equityStock" class="">
-            <th *ngFor="let key of item | keys" scope="col">
+            <th *ngFor="let key of item | keys" scope="col" class="text-cap">
               {{key}}
             </th>
           </tr>

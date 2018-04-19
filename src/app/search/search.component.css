@@ -40,4 +40,13 @@
   margin-right: auto;
 
 }
-
+.loader {
+  height: 100px;
+  position: absolute;
+  right: 0;
+  top: -30px;
+  z-index: -1;
+}
+.text-cap {
+  text-transform: capitalize;
+}

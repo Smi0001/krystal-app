@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   queryList = [];
   equityStock = [];
   table: any;
+  progress = false;
   constructor(
     private assetService: AssetService
   ) { }
@@ -29,12 +30,14 @@ export class SearchComponent implements OnInit {
         filter: '',
         isCustom: false
       };
+      this.progress = true;
       // console.log('query->', this.query);
       this.assetService.getAutocomplete(params).subscribe( (res) => {
         // console.log(res);
         if (res) {
           this.queryList = res;
         }
+        this.progress = false;
       });
     }
   }
